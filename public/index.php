@@ -4,14 +4,16 @@ require_once '../includes/bootstrap.php';
 
 $words = getAllWords();
 
-$_SESSION = [];
-session_destroy();
-
 $flashes = null;
 if ( Flash::hasFlashes() ) {
     $flashes = Flash::getFlashes();
 }
-$template = '../views/index.html';
+
+// Eliminamos cualquier variable de sesión
+$_SESSION = [];
+session_destroy();
+
+$template = '../views/list.html';
 
 require_once '../views/base.html';
 $time = microtime(true) - $time;
