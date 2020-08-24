@@ -1,0 +1,43 @@
+<section>
+
+    <div class="text-center mb-3">
+        <h1 class="h2">Diccionario de palabras</h1>
+    </div>
+    <div class="row align-items-center mb-3">
+        <div class="col">
+            <h2 class="h3">Palabras</h1>
+        </div>
+        <div class="col-auto">
+            <a class="btn btn-success btn-sm" href="<?= BASE_URL ?>/add-edit.php"
+                title="Agregar palabra al diccionario">Agregar</a>
+        </div>
+    </div>
+    <table id="dataTable" class="table table-sm table-striped table-bordered" style="width:100%;">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Palabra</th>
+                <th>Significado</th>
+                <th>Ejemplo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $i = 1; foreach($words as $word): ?>
+            <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $word['palabra'] ?></td>
+                <td><?= $word['significado'] ?></td>
+                <td><?= $word['ejemplo'] ?></td>
+                <td class="text-center">
+                    <a href="add-edit.php?id=<?php echo $word['id']; ?>" title="Editar palabra"><span class="material-icons">edit</span></a>
+                    <a href="delete.php?id=<?php echo $word['id']; ?>"
+                        onclick="return confirm('¿Desea eliminar el registro?');" title="Eliminar palabra"><span
+                            class="material-icons">delete</span></a>
+                </td>
+            </tr>
+            <?php endforeach ?>
+        </tbody>
+    </table>
+
+</section>
