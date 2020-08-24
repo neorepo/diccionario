@@ -10,6 +10,7 @@ $action = array_key_exists('id', $_GET);
 if ($action) {
     $data = getWordById();
     $_SESSION['id'] = $data['id'];
+    $_SESSION['palabra'] = $data['palabra'];
 } else {
     $data = [
         'id' => '',
@@ -56,8 +57,6 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         if ( save( $data ) ) {
             $message = 'Guardado correctamente.';
             $class = 'success';
-            
-            $_SESSION = [];
         }
         Flash::addFlash($message, $class);
         header('Location: index.php');
@@ -71,7 +70,6 @@ if ( Flash::hasFlashes() ) {
 }
 $template = '../views/add-edit.html';
 
-$title = $action ? 'Editar' : 'Agregar';
 require_once '../views/base.html';
 
 function save($data) {

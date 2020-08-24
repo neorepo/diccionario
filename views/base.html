@@ -13,7 +13,7 @@
     <?php if(isset($title)): ?>
     <title>Palabras - <?= htmlspecialchars($title); ?></title>
     <?php else: ?>
-    <title>Palabras</title>
+    <title>Diccionario - Aplicación de muestra</title>
     <?php endif; ?>
 
     <!-- Bootstrap -->
@@ -33,6 +33,11 @@
 </head>
 
 <body>
+    <header class="text-center mt-3">
+        <h1 class="h2"><span class="material-icons logo" style="vertical-align: bottom;">local_library</span>
+            Diccionario</h1>
+        <p class="lead">Aplicación PHP de muestra</p>
+    </header>
     <?php if($flashes): ?>
     <?php foreach($flashes as $flash): ?>
     <div class="alert alert-<?= htmlspecialchars($flash['class']); ?> text-center" role="alert">
@@ -54,8 +59,8 @@
         </div>
     </footer>
 
-    <button onclick="topFunction()" id="myBtn" title="Go to top"><span class="material-icons"
-            style="vertical-align: bottom;font-size: 24px;color: white;">arrow_upward</span></button>
+    <button onclick="topFunction()" id="myBtn" title="Subir"><span class="material-icons"
+            style="vertical-align: bottom;font-size: 24px;color: white;">keyboard_arrow_up</span></button>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

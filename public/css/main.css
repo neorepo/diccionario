@@ -10,10 +10,6 @@
     border-color: inherit;
 }
 
-.form-group {
-    margin-bottom: 30px;
-}
-
 label {
     margin-bottom: .25rem;
     font-weight: 700;
@@ -22,6 +18,12 @@ label {
 .material-icons {
     font-size: 22px;
     color: #0E1B55;
+    margin: 0 4px;
+}
+
+.material-icons.logo {
+    margin: 0;
+    font-size: 48px;
 }
 
 #myBtn {
@@ -33,13 +35,13 @@ label {
     font-size: 18px;
     border: none;
     outline: none;
-    background-color: #555;
+    background-color: #545b62;
     color: white;
     cursor: pointer;
-    padding: 13px;
+    padding: 10px;
     border-radius: 4px;
 }
 
 #myBtn:hover {
-    background-color: #0E1B55;
+    background-color: #5a6268;
 }
