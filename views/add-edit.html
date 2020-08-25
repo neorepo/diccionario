@@ -1,12 +1,12 @@
 <section>
     <div>
-        <h1 class="h2 mb-4">
+        <h2 class="h3 mb-4">
             <?php if( isset( $_SESSION['id'] ) ): ?>
             <?= $_SESSION['palabra']; ?>
             <?php else: ?>
             <i class="material-icons">post_add</i> Agregar nueva palabra
             <?php endif; ?>
-        </h1>
+        </h2>
     </div>
 
     <form action="add-edit.php" method="POST">
@@ -22,7 +22,7 @@
         <div class="form-group">
             <label for="significado">* Significado</label>
             <textarea class="form-control <?= isset($errors['significado']) ? 'is-invalid' : ''; ?>" name="significado"
-                id="significado" rows="3" spellcheck="false" autocomplete="off" autocorrect="off"
+                id="significado" rows="4" spellcheck="false" autocomplete="off" autocorrect="off"
                 autocapitalize="off"><?= $data['significado']; ?></textarea>
             <div class="invalid-feedback"><?= $errors['significado'] ?? ''; ?></div>
         </div>
