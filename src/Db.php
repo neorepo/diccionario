@@ -13,7 +13,8 @@ class Db
             $this->conn = new PDO($config['dsn'], $config['username'], $config['password'], array(
                 PDO::ATTR_PERSISTENT => true,
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_EMULATE_PREPARES => false
+                PDO::ATTR_EMULATE_PREPARES => false,
+                // PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
             ));
         } catch (PDOException $e) {
             trigger_error('Could not connect to database:' . $e->getMessage(), E_USER_ERROR);

@@ -5,7 +5,7 @@
         </div>
         <div class="col-auto">
             <a class="btn btn-primary btn-sm" href="<?= BASE_URL ?>/add-edit.php"
-                title="Agregar palabra"><span class="material-icons" style="color: white;">note_add</span> Agregar</a>
+                title="Agregar palabra"><i class="material-icons" style="color: white;">note_add</i> Agregar</a>
         </div>
     </div>
     <table id="dataTable" class="table table-sm table-striped table-bordered dt-responsive" style="width:100%;">
@@ -26,10 +26,10 @@
                 <td><?= $word['significado'] ?></td>
                 <td><?= $word['ejemplo'] ?></td>
                 <td class="text-center">
-                    <a href="add-edit.php?id=<?php echo $word['id']; ?>" title="Editar palabra"><span class="material-icons">edit</span></a>
+                    <a href="add-edit.php?id=<?php echo $word['id']; ?>" title="Editar palabra"><i class="material-icons">edit</i></a>
                     <a href="delete.php?id=<?php echo $word['id']; ?>"
-                        onclick="return confirm('¿Desea eliminar el registro?');" title="Eliminar palabra"><span
-                            class="material-icons">delete</span></a>
+                        onclick="return confirm('¿Desea eliminar el registro?');" title="Eliminar palabra"><i
+                            class="material-icons">delete</i></a>
                 </td>
             </tr>
             <?php endforeach ?>
