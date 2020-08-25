@@ -37,7 +37,7 @@ function getWordById() {
     } catch (\Throwable $th) {
         trigger_error('No se proporcionó un identificador de palabra.', E_USER_ERROR);
     }
-    if ( !is_numeric($id) ) {
+    if ( !isPositiveInt($id) ) {
         trigger_error('Se proporcionó un identificador de palabra no válido.', E_USER_ERROR);
     }
     $rows = findById($id);
@@ -74,7 +74,7 @@ function findById($id) {
 }
 
 /**
- * 
+ * Cambia el estado deleted de 0 a 1
  */
 function delete($id) {
     /**

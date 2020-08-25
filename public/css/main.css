@@ -18,7 +18,7 @@ label {
 .material-icons {
     font-size: 22px;
     color: #0E1B55;
-    margin: 0 4px;
+    vertical-align: bottom;
 }
 
 .material-icons.logo {
@@ -26,11 +26,16 @@ label {
     font-size: 48px;
 }
 
+.material-icons.top {
+    font-size: 26px;
+    color: white;
+}
+
 #myBtn {
     display: none;
     position: fixed;
     bottom: 20px;
-    right: 30px;
+    right: 15px;
     z-index: 99;
     font-size: 18px;
     border: none;
