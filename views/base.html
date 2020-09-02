@@ -5,15 +5,16 @@
     <meta name="description" content="Palabras">
     <meta name="keywords" content="HTML,CSS,JavaScript,PHP">
     <meta name="author" content="Julio Cesar">
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="<?= BASE_URL ?>/img/favicon.ico" type="image/x-icon">
 
     <?php if(isset($title)): ?>
     <title>Diccionario - <?= htmlspecialchars($title); ?></title>
     <?php else: ?>
     <title>Diccionario - Mis palabras</title>
     <?php endif; ?>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="<?= BASE_URL ?>/img/favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -33,7 +34,8 @@
 
 <body>
     <header class="text-center mt-3">
-        <h1 class="h2"><i class="material-icons logo">local_library</i> Mis palabras</h1>
+        <h1 class=""><a href="index.php"><i class="material-icons logo">menu_book</i></a> Mis palabras</h1>
+        
         <p class="lead">Aplicación de diccionario en PHP</p>
     </header>
     <?php if($flashes): ?>

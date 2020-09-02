@@ -14,7 +14,7 @@ if ($action) {
 } else {
     $data = [
         'id' => '',
-        'palabra' => '',
+        'palabra' => null,
         'significado' => '',
         'ejemplo' => ''
     ];

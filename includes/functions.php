@@ -31,18 +31,34 @@ function get_int($n) {
  * Devuelve la palabra por el identificador 'id' que se encuentra en la URL.
  */
 function getWordById() {
+    $flashes = null;
+    if ( Flash::hasFlashes() ) {
+        $flashes = Flash::getFlashes();
+    }
     $id = null;
     try {
         $id = getUrlParam('id');
-    } catch (\Throwable $th) {
-        trigger_error('No se proporcionó un identificador de palabra.', E_USER_ERROR);
+    } catch (Exception $ex) {
+        $template = '../views/404.html';
+        $extra = ['message' => 'No se proporcionó un identificador de palabra.'];
+        require_once '../views/base.html';
+        exit;
+        // trigger_error('No se proporcionó un identificador de palabra.', E_USER_ERROR);
     }
     if ( !isPositiveInt($id) ) {
-        trigger_error('Se proporcionó un identificador de palabra no válido.', E_USER_ERROR);
+        $template = '../views/404.html';
+        $extra = ['message' => 'Se proporcionó un identificador de palabra no válido.'];
+        require_once '../views/base.html';
+        exit;
+        // trigger_error('Se proporcionó un identificador de palabra no válido.', E_USER_ERROR);
     }
     $rows = findById($id);
     if ( count($rows) == 0 ) {
-        trigger_error('Se proporcionó un identificador de palabra desconocido.', E_USER_ERROR);
+        $template = '../views/404.html';
+        $extra = ['message' => 'Se proporcionó un identificador de palabra desconocido.'];
+        require_once '../views/base.html';
+        exit;
+        // trigger_error('Se proporcionó un identificador de palabra desconocido.', E_USER_ERROR);
     }
     return $rows[0];
 }
@@ -90,7 +106,7 @@ function delete($id) {
  * Recupera todos los registros de la tabla palabras
  */
 function getAllWords() {
-    return Db::query('SELECT * FROM palabras WHERE deleted = 0 ORDER BY palabra; ');
+    return Db::query('SELECT * FROM palabras WHERE deleted = 0 ORDER BY palabra LIMIT 3;');
 }
 
 /**

@@ -23,12 +23,17 @@ label {
 
 .material-icons.logo {
     margin: 0;
-    font-size: 48px;
+    font-size: 52px;
 }
 
 .material-icons.top {
     font-size: 26px;
     color: white;
+}
+
+.material-icons.pdf {
+    font-size: 24px;
+    color: red;
 }
 
 #myBtn {

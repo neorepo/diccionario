@@ -1,5 +1,9 @@
 <?php
 $time = microtime(true);
+// $a = 1;
+// $b = !!$a;
+// var_dump( ~$a ); -2
+// var_dump( $b ); true
 require_once '../includes/bootstrap.php';
 
 $words = getAllWords();

@@ -1,16 +1,9 @@
 <section>
     <div>
-        <h2 class="h3 mb-4">
-            <?php if( isset( $_SESSION['id'] ) ): ?>
-            <?= $_SESSION['palabra']; ?>
-            <?php else: ?>
-            <i class="material-icons">post_add</i> Agregar nueva palabra
-            <?php endif; ?>
-        </h2>
+        <h2 class="mb-4"><?= isset( $_SESSION['id'] ) ? $_SESSION['palabra'] : 'Agregar nueva palabra'; ?></h2>
     </div>
 
     <form action="add-edit.php" method="POST">
-
         <div class="form-group">
             <label for="palabra">* Palabra</label>
             <input type="text" class="form-control <?= isset($errors['palabra']) ? 'is-invalid' : ''; ?>" name="palabra"
