@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Palabras">
@@ -12,7 +13,7 @@
     <?php else: ?>
     <title>Diccionario - Mis palabras</title>
     <?php endif; ?>
-    
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="<?= BASE_URL ?>/img/favicon.ico" type="image/x-icon">
 
@@ -35,7 +36,7 @@
 <body>
     <header class="text-center mt-3">
         <h1 class=""><a href="index.php"><i class="material-icons logo">menu_book</i></a> Mis palabras</h1>
-        
+
         <p class="lead">Aplicación de diccionario en PHP</p>
     </header>
     <?php if($flashes): ?>
@@ -57,7 +58,8 @@
         </div>
     </footer>
 
-    <button onclick="topFunction()" id="myBtn" title="Subir"><i class="material-icons top">keyboard_arrow_up</i></button>
+    <button onclick="topFunction()" id="myBtn" title="Subir"><i
+            class="material-icons top">keyboard_arrow_up</i></button>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -77,6 +79,21 @@
 
     <script src="<?= BASE_URL ?>/js/datatable.js"></script>
     <script src="<?= BASE_URL ?>/js/main.js"></script>
+
+    <script>
+        // Evitar enviar el formulario presionando la tecla ENTER en un input field
+        if (document.querySelector('form')) {
+            // También se puede utilizar el evento onkeydown
+            document.querySelector('form').onkeypress = (e) => {
+                if (e.which == 13) {
+                    // Evitamos que se ejecuté el evento
+                    e.preventDefault();
+                    // Retornamos false
+                    return false;
+                }
+            }
+        }
+    </script>
 
     <noscript>Your browser does not support JavaScript!</noscript>
 </body>

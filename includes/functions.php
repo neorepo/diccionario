@@ -106,7 +106,7 @@ function delete($id) {
  * Recupera todos los registros de la tabla palabras
  */
 function getAllWords() {
-    return Db::query('SELECT * FROM palabras WHERE deleted = 0 ORDER BY palabra LIMIT 3;');
+    return Db::query('SELECT * FROM palabras WHERE deleted = 0 ORDER BY palabra;');
 }
 
 /**
