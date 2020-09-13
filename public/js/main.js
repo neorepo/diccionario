@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
             fadeOut(el);
         });
     }
+
+    initFlashes();
+    initDeleteDialog();
 });
 
 function fadeOut(el) {
@@ -31,4 +34,37 @@ function scrollFunction() {
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+}
+
+function initFlashes() {
+    var flashes = $("#flashes");
+    if (!flashes.length) {
+        return;
+    }
+    setTimeout(function() {
+        flashes.slideUp("slow");
+    }, 3000);
+}
+
+function initDeleteDialog() {
+    var deleteDialog = $('#delete-dialog');
+    var deleteLink = $('#delete-link');
+    deleteDialog.dialog({
+        autoOpen: false,
+        modal: true,
+        width: 476,
+        buttons: {
+            'OK': function() {
+                $(this).dialog('close');
+                location.href = deleteLink.attr('href');// page=delete&id=?
+            },
+            'Cancel': function() {
+                $(this).dialog('close');
+            }
+        }
+    });
+    deleteLink.click(function() {
+        deleteDialog.dialog('open');
+        return false;
+    });
 }

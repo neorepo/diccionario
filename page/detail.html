@@ -1,0 +1,38 @@
+<table class="detail">
+    <tr>
+        <th>Palabra</th>
+        <td><?= Utils::escape( $palabra->getPalabra() ); ?></td>
+    </tr>
+    <tr>
+        <th>Significado</th>
+        <td><?= Utils::escape( $palabra->getSignificado() ); ?></td>
+    </tr>
+    <tr>
+        <th>Ejemplo</th>
+        <td><?= Utils::escape( $palabra->getEjemplo() ); ?></td>
+    </tr>
+    <tr>
+        <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>
+            <div class="actions">
+                <a href="<?= Utils::createLink('add-edit', ['id' => $palabra->getId()]); ?>" title="Editarla."><i
+                        class="material-icons multi">edit</i></a>
+                <a href="<?= Utils::createLink('delete', ['id' => $palabra->getId()]); ?>" id="delete-link"
+                    title="Eliminarla."><i class="material-icons multi">delete</i></a>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<p>
+    <a href="<?= Utils::createLink('list'); ?>" title="Volver a la lista."><i class="material-icons">fast_rewind</i>A la
+        lista</a>
+</p>
+
+<div id="delete-dialog" title="¿Eliminar esta palabra?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Esta palabra será eliminada.
+        ¿Estás seguro?</p>
+</div>

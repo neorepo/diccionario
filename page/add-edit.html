@@ -1,13 +1,19 @@
 <section>
-    <div>
-        <h2 class="mb-4"><?= isset( $_SESSION['id'] ) ? $_SESSION['palabra'] : 'Agregar nueva palabra'; ?></h2>
-    </div>
 
-    <form action="add-edit.php" method="POST">
+    <h2 class="mb-4">
+        <?php if ($action): ?>
+            <?= Utils::escape( $palabra->getPalabra() ); ?>
+        <?php else: ?>
+            <i class="material-icons new">insert_invitation</i>
+            Agregar nueva palabra
+        <?php endif; ?>
+    </h2>
+
+    <form action="#" method="POST">
         <div class="form-group">
             <label for="palabra">* Palabra</label>
             <input type="text" class="form-control <?= isset($errors['palabra']) ? 'is-invalid' : ''; ?>" name="palabra"
-                id="palabra" autofocus value="<?= $data['palabra']; ?>" spellcheck="false" autocomplete="off"
+                id="palabra" autofocus value="<?= $palabra->getPalabra(); ?>" spellcheck="false" autocomplete="off"
                 autocorrect="off" autocapitalize="off" maxlength="50">
             <div class="invalid-feedback"><?= $errors['palabra'] ?? ''; ?></div>
         </div>
@@ -16,14 +22,14 @@
             <label for="significado">* Significado</label>
             <textarea class="form-control <?= isset($errors['significado']) ? 'is-invalid' : ''; ?>" name="significado"
                 id="significado" rows="4" spellcheck="false" autocomplete="off" autocorrect="off"
-                autocapitalize="off"><?= $data['significado']; ?></textarea>
+                autocapitalize="off"><?= $palabra->getSignificado(); ?></textarea>
             <div class="invalid-feedback"><?= $errors['significado'] ?? ''; ?></div>
         </div>
 
         <div class="form-group">
             <label for="ejemplo">Ejemplo</label>
             <textarea class="form-control" name="ejemplo" id="ejemplo" rows="3" spellcheck="false" autocomplete="off"
-                autocorrect="off" autocapitalize="off"><?= $data['ejemplo']; ?></textarea>
+                autocorrect="off" autocapitalize="off"><?= $palabra->getEjemplo(); ?></textarea>
         </div>
         <button class="btn btn-primary" type="submit">Guardar</button>
         <a class="btn btn-light" href="index.php">Cancelar</a>

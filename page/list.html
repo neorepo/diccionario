@@ -1,0 +1,35 @@
+<section>
+    <div class="row align-items-center mb-3">
+        <div class="col">
+            <h2 class="">Palabras <a class="" href="<?= Utils::createLink('add-edit'); ?>" title="Agregar palabra">
+                    <i class="material-icons align-middle">add_circle</i></a>
+                </h1>
+        </div>
+        <!-- <div class="col-auto">
+            <a href=""><i class="material-icons pdf">picture_as_pdf</i></a>
+        </div> -->
+    </div>
+    <table id="dataTable" class="table table-sm table-striped table-bordered dt-responsive" style="width:100%;">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Palabra</th>
+                <th>Significado</th>
+                <th>Ejemplo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $i = 1; foreach($palabras as $palabra): ?>
+            <tr>
+                <td><?= $i++ ?></td>
+                <td><a
+                        href="<?= Utils::createLink('detail', ['id' => $palabra->getId()]) ?>"><?= Utils::escape($palabra->getPalabra()); ?></a>
+                </td>
+                <td><?= $palabra->getSignificado() ?></td>
+                <td><?= $palabra->getEjemplo() ?></td>
+            </tr>
+            <?php endforeach ?>
+        </tbody>
+    </table>
+
+</section>
