@@ -13,6 +13,15 @@ if ($action) {
 
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
+    if (array_key_exists('cancelar', $_POST)) {
+
+        if( $palabra->getId() !== null) {
+            Utils::redirect('detail', ['id' => $palabra->getId() ]);
+        } else {
+            Utils::redirect('list');
+        }
+    }
+
     $data = [
         'palabra' => $_POST['palabra'],
         'significado' => $_POST['significado'],

@@ -12,13 +12,12 @@ class Index {
     private static $CLASSES = [
         'Config' => '/../config/Config.php',
         'Flash' => '/../src/Flash.php',
-        // 'Db' => '/../src/Db.php',
-        // 'Template' => '/../src/Template.php',
         'Utils' => '/../src/Utils.php',
         'BaseDao' => '/../dao/BaseDao.php',
         'PalabraDao' => '/../dao/PalabraDao.php',
         'Palabra' => '/../src/Palabra.php',
         'PalabraMapper' => '/../src/PalabraMapper.php',
+        'NotFoundException' => '/../src/NotFoundException.php',
     ];
 
     /**
@@ -28,7 +27,7 @@ class Index {
         // error reporting - all errors for development (ensure you have display_errors = On in your php.ini file)
         error_reporting(E_ALL | E_STRICT);
         mb_internal_encoding('UTF-8');
-
+        set_exception_handler([$this, 'handleException']);
         spl_autoload_register([$this, 'loadClass']);
         // session
         session_start();
@@ -41,6 +40,18 @@ class Index {
         require_once __DIR__ . self::$CLASSES[$name];
     }
 
+    public function handleException($ex) {
+        $extra = ['message' => $ex->getMessage()];
+        if ($ex instanceof NotFoundException) {
+            header('HTTP/1.0 404 Not Found');
+            $this->runPage('404', $extra);
+        } else {
+            // TODO log exception
+            header('HTTP/1.1 500 Internal Server Error');
+            $this->runPage('500', $extra);
+        }
+    }
+
     private function getPage() {
         $page = self::DEFAULT_PAGE; // list
 
@@ -51,6 +62,7 @@ class Index {
     }
 
     private function checkPage($page) {
+        // i => no sensible a mayúsculas y minúsculas
         if (!preg_match('/^[a-z0-9-]+$/i', $page)) {
             // TODO log attempt, redirect attacker, ...
             throw new NotFoundException('Unsafe page "' . $page . '" requested');
@@ -83,7 +95,6 @@ class Index {
             if (Flash::hasFlashes()) {
                 $flashes = Flash::getFlashes();
             }
-
             // main template (layout)
             require self::LAYOUT_DIR . 'base.html';
         }

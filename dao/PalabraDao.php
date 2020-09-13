@@ -20,16 +20,21 @@ class PalabraDao extends BaseDao {
 
     public function findByPalabra(Palabra $palabra) {
         if( $palabra->getId() !== null ) {
-            $q = 'SELECT id FROM palabras WHERE palabra = :palabra  AND id != :id';
+            $q = 'SELECT * FROM palabras WHERE palabra = :palabra  AND id != :id';
             $statement = $this->conn->prepare($q);
             $this->executeStatement($statement, [':palabra' => $palabra->getPalabra(), ':id' => $palabra->getId(),]);
         } else {
-            $q = 'SELECT id FROM palabras WHERE palabra = :palabra';
+            $q = 'SELECT * FROM palabras WHERE palabra = :palabra';
             $statement = $this->conn->prepare($q);
             $this->executeStatement($statement, [':palabra' => $palabra->getPalabra()]);
         }
-        $row = $statement->fetchAll();
-        return count($row);
+        $row = $statement->fetch();
+        if (!$row) {
+            return null;
+        }
+        $palabra = new Palabra();
+        PalabraMapper::map($palabra, $row);
+        return $palabra;
     }
 
     public function save(Palabra $palabra) {

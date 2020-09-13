@@ -2,19 +2,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    if (document.querySelector('.alert')) {
-        document.querySelectorAll('.alert').forEach(el => {
-            fadeOut(el);
-        });
-    }
-
+    // initDeleteFlash();
     initFlashes();
     initDeleteDialog();
 });
-
-function fadeOut(el) {
-    setTimeout(function () { /*el.style.display = 'none';*/ el.remove(); }, 13000);
-}
 
 //Get the button
 var mybutton = document.getElementById("myBtn");
@@ -34,6 +25,18 @@ function scrollFunction() {
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+}
+
+function initDeleteFlash() {
+    if (document.querySelector('.alert')) {
+        document.querySelectorAll('.alert').forEach(el => {
+            fadeOut(el);
+        });
+    }
+}
+
+function fadeOut(el) {
+    setTimeout(function () { /*el.style.display = 'none';*/ el.remove(); }, 3000);
 }
 
 function initFlashes() {

@@ -9,7 +9,7 @@ final class Utils {
 
     public static function createLink($page, array $params = []) {
         unset($params['page']);
-        return 'index.php?' .http_build_query(array_merge(['page' => $page], $params));
+        return 'index.php?' . http_build_query(array_merge(['page' => $page], $params));
     }
 
     public static function getUrlParam($name) {
@@ -39,7 +39,11 @@ final class Utils {
 
     public static function existePalabra($palabra) {
         $dao = new PalabraDao();
-        return $dao->findByPalabra($palabra);
+        $palabra = $dao->findByPalabra($palabra);
+        if($palabra === null) {
+            return false;
+        }
+        return true;
     }
 
     public static function escape($data) {

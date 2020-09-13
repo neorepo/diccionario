@@ -19,9 +19,9 @@
         <td>
             <div class="actions">
                 <a href="<?= Utils::createLink('add-edit', ['id' => $palabra->getId()]); ?>" title="Editarla."><i
-                        class="material-icons multi">edit</i></a>
+                        class="material-icons">edit</i></a>
                 <a href="<?= Utils::createLink('delete', ['id' => $palabra->getId()]); ?>" id="delete-link"
-                    title="Eliminarla."><i class="material-icons multi">delete</i></a>
+                    title="Eliminarla."><i class="material-icons">delete</i></a>
             </div>
         </td>
     </tr>
@@ -32,7 +32,8 @@
         lista</a>
 </p>
 
-<div id="delete-dialog" title="¿Eliminar esta palabra?">
-    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Esta palabra será eliminada.
+<div id="delete-dialog" title="¿Eliminar la palabra <?= $palabra->getPalabra() ?>?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Esta palabra será
+        eliminada.
         ¿Estás seguro?</p>
 </div>
