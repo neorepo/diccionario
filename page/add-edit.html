@@ -1,11 +1,10 @@
 <section>
 
-    <h2 class="mb-4">
+    <h2 class="mb-3">
         <?php if ($action): ?>
             <?= Utils::escape( $palabra->getPalabra() ); ?>
         <?php else: ?>
-            <i class="material-icons new">insert_invitation</i>
-            Agregar nueva palabra
+            <i class="material-icons new">insert_invitation</i> Agregar nueva palabra
         <?php endif; ?>
     </h2>
 
@@ -31,7 +30,7 @@
             <textarea class="form-control" name="ejemplo" id="ejemplo" rows="3" spellcheck="false" autocomplete="off"
                 autocorrect="off" autocapitalize="off"><?= $palabra->getEjemplo(); ?></textarea>
         </div>
-        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-primary" type="submit"><?= $action ? 'Editar' : 'Agregar'; ?></button>
         <button class="btn btn-light" type="submit" name="cancelar">Cancelar</button>
     </form>
 </section>

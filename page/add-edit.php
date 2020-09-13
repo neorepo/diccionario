@@ -2,12 +2,14 @@
 
 $palabra = null;
 $errors = [];
-
+$title = null;
 $action = array_key_exists('id', $_GET);
 
 if ($action) {
     $palabra = Utils::getPalabraByGetId();
+    $title = 'Editar palabra';
 } else {
+    $title = 'Agregar palabra';
     $palabra = new Palabra;
 }
 

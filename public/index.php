@@ -69,7 +69,7 @@ class Index {
         }
         if (!$this->hasScript($page) && !$this->hasTemplate($page)) {
             // TODO log attempt, redirect attacker, ...
-            throw new NotFoundException('Page "' . $page . '" not found');
+            throw new NotFoundException('Página "' . $page . '" no encontrada.');
         }
         return $page;
     }

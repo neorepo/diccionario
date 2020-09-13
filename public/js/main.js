@@ -44,7 +44,7 @@ function initFlashes() {
     if (!flashes.length) {
         return;
     }
-    setTimeout(function() {
+    setTimeout(function () {
         flashes.slideUp("slow");
     }, 3000);
 }
@@ -57,16 +57,16 @@ function initDeleteDialog() {
         modal: true,
         width: 476,
         buttons: {
-            'OK': function() {
+            'OK': function () {
                 $(this).dialog('close');
                 location.href = deleteLink.attr('href');// page=delete&id=?
             },
-            'Cancel': function() {
+            'Cancel': function () {
                 $(this).dialog('close');
             }
         }
     });
-    deleteLink.click(function() {
+    deleteLink.click(function () {
         deleteDialog.dialog('open');
         return false;
     });
