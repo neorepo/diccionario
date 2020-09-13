@@ -1,8 +1,5 @@
 <?php
 
-// define('BASE_URL', 'http://localhost/diccionario');
-// define('DOCUMENT_ROOT', dirname(__DIR__));
-
 class Index {
 
     const DEFAULT_PAGE = 'list';
@@ -33,9 +30,16 @@ class Index {
         session_start();
     }
 
+    /**
+     * Run the application!
+     */
+    public function run() {
+        $this->runPage($this->getPage());
+    }
+
     public function loadClass($name) {
         if (!array_key_exists($name, self::$CLASSES)) {
-            die('Class "' . $name . '" not found.');
+            die('Clase "' . $name . '" no encontrada.');
         }
         require_once __DIR__ . self::$CLASSES[$name];
     }
@@ -56,6 +60,7 @@ class Index {
         $page = self::DEFAULT_PAGE; // list
 
         if (array_key_exists('page', $_GET)) {
+            var_dump($_GET);
             $page = $_GET['page'];
         }
         return $this->checkPage($page);
@@ -72,13 +77,6 @@ class Index {
             throw new NotFoundException('Página "' . $page . '" no encontrada.');
         }
         return $page;
-    }
-
-    /**
-     * Run the application!
-     */
-    public function run() {
-        $this->runPage($this->getPage());
     }
 
     private function runPage($page, array $extra = []) {

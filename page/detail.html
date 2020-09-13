@@ -28,12 +28,10 @@
 </table>
 
 <p>
-    <a href="<?= Utils::createLink('list'); ?>" title="Volver a la lista."><i class="material-icons">fast_rewind</i> A la
-        lista</a>
+    <a href="<?= Utils::createLink('list'); ?>" title="Volver a la lista.">
+        <i class="material-icons">fast_rewind</i> A la lista</a>
 </p>
 
 <div id="delete-dialog" title="¿Eliminar la palabra <?= $palabra->getPalabra() ?>?">
-    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Esta palabra será
-        eliminada.
-        ¿Estás seguro?</p>
+    <p><span class="ui-icon ui-icon-alert"></span> Esta palabra será eliminada. ¿Estás seguro?</p>
 </div>

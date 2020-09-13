@@ -47,6 +47,6 @@ final class Utils {
     }
 
     public static function escape($data) {
-        return htmlspecialchars( stripslashes( trim($data) ), ENT_QUOTES);
+        return htmlspecialchars( stripslashes( trim($data) ) );
     }
 }

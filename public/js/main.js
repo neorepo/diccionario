@@ -55,13 +55,14 @@ function initDeleteDialog() {
     deleteDialog.dialog({
         autoOpen: false,
         modal: true,
+        resizable: false,
         width: 476,
         buttons: {
-            'OK': function () {
+            'Aceptar': function () {
                 $(this).dialog('close');
                 location.href = deleteLink.attr('href');// page=delete&id=?
             },
-            'Cancel': function () {
+            'Cancelar': function () {
                 $(this).dialog('close');
             }
         }
