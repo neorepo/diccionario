@@ -60,7 +60,6 @@ class Index {
         $page = self::DEFAULT_PAGE; // list
 
         if (array_key_exists('page', $_GET)) {
-            var_dump($_GET);
             $page = $_GET['page'];
         }
         return $this->checkPage($page);
