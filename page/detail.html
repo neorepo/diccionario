@@ -1,21 +1,14 @@
-<table class="detail">
+<table class="table table-borderless detail">
     <tr>
-        <th>Palabra</th>
-        <td><?= Utils::escape( $palabra->getPalabra() ); ?></td>
+        <th class="h2"><?= Utils::escape( $palabra->getPalabra() ); ?></th>
     </tr>
     <tr>
-        <th>Significado</th>
         <td><?= Utils::escape( $palabra->getSignificado() ); ?></td>
     </tr>
     <tr>
-        <th>Ejemplo</th>
         <td><?= Utils::escape( $palabra->getEjemplo() ); ?></td>
     </tr>
     <tr>
-        <td colspan="2">&nbsp;</td>
-    </tr>
-    <tr>
-        <th></th>
         <td>
             <div class="actions">
                 <a href="<?= Utils::createLink('add-edit', ['id' => $palabra->getId()]); ?>" title="Editarla."><i
@@ -26,12 +19,11 @@
         </td>
     </tr>
 </table>
-
 <p>
-    <a href="<?= Utils::createLink('list'); ?>" title="Volver a la lista.">
+    <a href="<?= Utils::createLink('list'); ?>" title="Volver a la lista." style="margin-left: .75rem;">
         <i class="material-icons">fast_rewind</i> A la lista</a>
 </p>
 
-<div id="delete-dialog" title="¿Eliminar la palabra <?= $palabra->getPalabra() ?>?">
+<div id="delete-dialog" title="Eliminar la palabra <?= $palabra->getPalabra(); ?>">
     <p><span class="ui-icon ui-icon-alert"></span> Esta palabra será eliminada. ¿Estás seguro?</p>
 </div>

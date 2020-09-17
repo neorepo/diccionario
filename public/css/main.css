@@ -15,14 +15,12 @@ label {
     font-weight: 700;
 }
 
-table.detail {
-    margin-bottom: 20px;
-}
 table.detail th {
     text-align: left;
 }
+
 table.detail td {
-    padding: 2px 14px;
+    padding: .75rem;
 }
 
 .material-icons {
