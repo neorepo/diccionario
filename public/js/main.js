@@ -16,16 +16,18 @@ function initDeleteFlash() {
     }
 }
 
+// Evitar enviar el formulario presionando la tecla ENTER en un input field
 function initPreventFormSubmit() {
-    // Evitar enviar el formulario presionando la tecla ENTER en un input field
     if (document.querySelector('form')) {
         // También se puede utilizar el evento onkeydown
         document.querySelector('form').onkeypress = (e) => {
-            if (e.key === "Enter") {
-                // Evitamos que se ejecuté el evento
-                e.preventDefault();
-                // Retornamos false
-                return false;
+            if (e.target.tagName !== "TEXTAREA") {
+                if (e.key === "Enter") {
+                    // Evitamos que se ejecuté el evento
+                    e.preventDefault();
+                    // Retornamos false
+                    return false;
+                }
             }
         }
     }
@@ -52,7 +54,7 @@ function initDeleteDialog() {
         buttons: {
             'Aceptar': function () {
                 $(this).dialog('close');
-                location.href = deleteLink.attr('href');// page=delete&id=?
+                location.href = deleteLink.attr('href');
             },
             'Cancelar': function () {
                 $(this).dialog('close');

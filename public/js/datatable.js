@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    initDataTable();
+});
+
+function initDataTable() {
     $('#dataTable').DataTable({
         // "pagingType": "full_numbers",
         "language": {
@@ -17,4 +21,4 @@ $(document).ready(function () {
             }
         }
     });
-});
+}
