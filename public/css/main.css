@@ -6,6 +6,7 @@
     box-shadow: none !important;
 }
 
+/* forms */
 .form-control:focus {
     border-color: inherit;
 }
@@ -15,14 +16,22 @@ label {
     font-weight: 700;
 }
 
+/* actions */
+/*.actions {
+    float: left;
+    margin-left: 20px;
+}*/
+
+/* table */
 table.detail th {
     text-align: left;
 }
 
-table.detail td {
+/*table.detail td {
     padding: .75rem;
-}
+}*/
 
+/* icons */
 .material-icons {
     font-size: 22px;
     color: #0E1B55;
