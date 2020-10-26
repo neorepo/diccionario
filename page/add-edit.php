@@ -7,11 +7,11 @@ $action = array_key_exists('id', $_GET);
 
 if ($action) {
     $palabra = Utils::getPalabraByGetId();
-    $title = 'Editar palabra';
 } else {
-    $title = 'Agregar palabra';
-    $palabra = new Palabra;
+    $palabra = new Palabra();
 }
+
+$title = $action ? 'Editar palabra' : 'Agregar palabra';
 
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
@@ -35,11 +35,8 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
     if ( empty( $palabra->getPalabra() ) ) {
         $errors['palabra'] = 'Completa este campo.';
-    } else {
-
-        if ( Utils::existePalabra( $palabra ) ) {
-            $errors['palabra'] = 'Esta palabra ya se encuentra registrada.';
-        }
+    } else if ( Utils::existePalabra( $palabra ) ) {
+        $errors['palabra'] = 'Esta palabra ya se encuentra registrada.';
     }
 
     if ( empty( $palabra->getSignificado() ) ) {

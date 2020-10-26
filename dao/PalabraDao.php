@@ -106,6 +106,8 @@ class PalabraDao extends BaseDao {
     }
 
     public function getAll() {
+        // MySQL => SUBSTRING_INDEX( TEXTO, ' ', 40 ) AS PREVIEW,
+        //$rows = $this->query('SELECT id, palabra, substr(significado, 1, 50) || "..." AS significado, ejemplo FROM palabras WHERE deleted = 0 ORDER BY palabra;');
         $rows = $this->query('SELECT * FROM palabras WHERE deleted = 0 ORDER BY palabra;');
         $result = [];
         foreach ($rows as $row) {

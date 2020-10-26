@@ -18,16 +18,15 @@ function initDeleteFlash() {
 
 // Evitar enviar el formulario presionando la tecla ENTER en un input field
 function initPreventFormSubmit() {
-    if (document.querySelector('form')) {
-        // También se puede utilizar el evento onkeydown
-        document.querySelector('form').onkeypress = (e) => {
-            if (e.target.tagName !== "TEXTAREA") {
-                if (e.key === "Enter") {
-                    // Evitamos que se ejecuté el evento
-                    e.preventDefault();
-                    // Retornamos false
-                    return false;
-                }
+    if (!document.querySelector('form')) return;
+    // También se puede utilizar el evento onkeydown
+    document.querySelector('form').onkeypress = (e) => {
+        if (e.target.tagName !== "TEXTAREA") {
+            if (e.key === "Enter") {
+                // Evitamos que se ejecuté el evento
+                e.preventDefault();
+                // Retornamos false
+                return false;
             }
         }
     }

@@ -2,7 +2,7 @@
 
 class Index {
 
-    const DEFAULT_PAGE = 'list';
+    const DEFAULT_PAGE = 'home';
     const PAGE_DIR = '../page/';
     const LAYOUT_DIR = '../views/';
 
