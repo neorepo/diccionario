@@ -9,15 +9,15 @@ final class PalabraMapper {
         if (array_key_exists('id', $properties)) {
             $palabra->setId($properties['id']);
         }
-        if (array_key_exists('palabra', $properties)) {
-            $palabra->setPalabra( Utils::escape( $properties['palabra'] ) );
-        }
-        if (array_key_exists('significado', $properties)) {
-            $palabra->setSignificado( Utils::escape( $properties['significado'] ) );
-        }
-        if (array_key_exists('ejemplo', $properties)) {
-            $palabra->setEjemplo( Utils::escape( $properties['ejemplo'] ) );
-        }
+        $palabra->setPalabra( Utils::escape( $properties['palabra'] ) );
+        $palabra->setSignificado( Utils::escape( $properties['significado'] ) );
+        $palabra->setEjemplo( Utils::escape( $properties['ejemplo'] ) );
+        // if (array_key_exists('palabra', $properties)) {
+        // }
+        // if (array_key_exists('significado', $properties)) {
+        // }
+        // if (array_key_exists('ejemplo', $properties)) {
+        // }
         if (array_key_exists('deleted', $properties)) {
             $palabra->setDeleted($properties['deleted']);
         }

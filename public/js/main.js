@@ -5,28 +5,29 @@ document.addEventListener('DOMContentLoaded', () => {
     initErrorFields();
     initFlashes();
     initDeleteDialog();
-    initPreventFormSubmit();
+    formSubmissionHandler();
 });
 
 function initDeleteFlash() {
-    if (document.querySelector('.alert')) {
-        document.querySelectorAll('.alert').forEach(el => {
-            setTimeout(function () { el.remove(); }, 3000);
-        });
+    let obj = document.querySelectorAll('.alert');
+    if (obj) {
+        obj.forEach(el => { setTimeout(function () { el.remove(); }, 3000); });
     }
 }
 
 // Evitar enviar el formulario presionando la tecla ENTER en un input field
-function initPreventFormSubmit() {
-    if (!document.querySelector('form')) return;
+function formSubmissionHandler() {
+    const formEl = document.querySelector('form');
+    if (!formEl) return;
     // También se puede utilizar el evento onkeydown
-    document.querySelector('form').onkeypress = (e) => {
-        if (e.target.tagName !== "TEXTAREA") {
-            if (e.key === "Enter") {
-                // Evitamos que se ejecuté el evento
-                e.preventDefault();
-                // Retornamos false
-                return false;
+    formEl.onkeypress = function (evt) {
+        var iKeyCode;
+        if (evt && evt.type == 'keypress') {
+            if (evt.target.tagName != 'TEXTAREA') {
+                if (evt.code)
+                    iKeyCode = evt.code;
+                if (iKeyCode == 'Enter')
+                    return false;
             }
         }
     }
@@ -66,10 +67,11 @@ function initDeleteDialog() {
     });
 }
 
+// Captura el primer error que exista en los formularios de registro
 function initErrorFields() {
-    // Captura el primer error que exista en los formularios de registro
-    if (document.querySelector('.is-invalid')) {
-        document.querySelector('.is-invalid').focus();
+    let obj = document.querySelector('.is-invalid');
+    if (obj) {
+        obj.focus();
     }
 }
 

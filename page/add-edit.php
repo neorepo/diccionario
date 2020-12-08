@@ -25,21 +25,21 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     }
 
     $data = [
-        'palabra' => $_POST['palabra'],
-        'significado' => $_POST['significado'],
-        'ejemplo' => $_POST['ejemplo']
+        'palabra' => array_key_exists('palabra', $_POST) ? $_POST['palabra'] : null,
+        'significado' => array_key_exists('significado', $_POST) ? $_POST['significado'] : null,
+        'ejemplo' => array_key_exists('ejemplo', $_POST) ? $_POST['ejemplo'] : null
     ];
 
     // map
     PalabraMapper::map($palabra, $data);
 
-    if ( empty( $palabra->getPalabra() ) ) {
+    if ( !$palabra->getPalabra() ) {
         $errors['palabra'] = 'Completa este campo.';
     } else if ( Utils::existePalabra( $palabra ) ) {
         $errors['palabra'] = 'Esta palabra ya se encuentra registrada.';
     }
 
-    if ( empty( $palabra->getSignificado() ) ) {
+    if ( !$palabra->getSignificado() ) {
         $errors['significado'] = 'Completa este campo.';
     }
 
