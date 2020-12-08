@@ -22,14 +22,13 @@ function formSubmissionHandler() {
     // También se puede utilizar el evento onkeydown
     formEl.onkeypress = function (evt) {
         var iKeyCode;
-        if (evt && evt.type == 'keypress') {
-            if (evt.target.tagName != 'TEXTAREA') {
-                if (evt.code)
-                    iKeyCode = evt.code;
-                if (iKeyCode == 'Enter')
-                    return false;
-            }
+        if (evt.target.tagName != 'TEXTAREA') {
+            if (evt.code)
+                iKeyCode = evt.code;
+            if (iKeyCode == 'Enter')
+                return false;
         }
+
     }
 }
 
