@@ -93,7 +93,7 @@ class Index {
                 $flashes = Flash::getFlashes();
             }
             // main template (layout)
-            require self::LAYOUT_DIR . 'base.html';
+            require self::LAYOUT_DIR . 'index.html';
         }
         if (!$run) {
             die('Page "' . $page . '" has neither script nor template!');
