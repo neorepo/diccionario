@@ -23,7 +23,7 @@ class Index {
     public function init() {
         // error reporting - all errors for development (ensure you have display_errors = On in your php.ini file)
         error_reporting(E_ALL | E_STRICT);
-        mb_internal_encoding('UTF-8');
+        //mb_internal_encoding('UTF-8');
         set_exception_handler([$this, 'handleException']);
         spl_autoload_register([$this, 'loadClass']);
         // session
