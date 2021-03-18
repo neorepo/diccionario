@@ -3,7 +3,7 @@
         <th class="h2"><?= Utils::escape( $palabra->getPalabra() ); ?></th>
     </tr>
     <tr>
-        <td><?= Utils::escape( $palabra->getSignificado() ); ?></td>
+        <td><?= nl2br( Utils::escape( $palabra->getSignificado() ) ); ?></td>
     </tr>
     <tr>
         <td><?= Utils::escape( $palabra->getEjemplo() ); ?></td>
