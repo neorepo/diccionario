@@ -6,6 +6,12 @@
     box-shadow: none !important;
 }
 
+a {text-decoration: none!important;}
+
+.emoji {
+    font-size: 16px;vertical-align: middle;
+}
+
 /* forms */
 .form-control:focus {
     border-color: inherit;

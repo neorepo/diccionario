@@ -11,17 +11,16 @@
     <tr>
         <td>
             <div class="actions">
-                <a href="<?= Utils::createLink('add-edit', ['id' => $palabra->getId()]); ?>" title="Editarla."><i
-                        class="material-icons">edit</i></a>
+                <a href="<?= Utils::createLink('add-edit', ['id' => $palabra->getId()]); ?>" title="Editarla."><span>🖊️</span></a>
                 <a href="<?= Utils::createLink('delete', ['id' => $palabra->getId()]); ?>" id="delete-link"
-                    title="Eliminarla."><i class="material-icons">delete</i></a>
+                    title="Eliminarla."><span>❌</span></a>
             </div>
         </td>
     </tr>
 </table>
 <p>
     <a href="<?= Utils::createLink('list'); ?>" title="Volver a la lista." style="margin-left: .75rem;">
-        <i class="material-icons">fast_rewind</i> A la lista</a>
+        <span>⏪</span> A la lista</a>
 </p>
 
 <div id="delete-dialog" title="Eliminar la palabra <?= $palabra->getPalabra(); ?>">
