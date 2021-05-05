@@ -9,7 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <?php if(isset($title)): ?>
-    <title>📖 Diccionario - <?= htmlspecialchars($title); ?></title>
+    <title>📖 Diccionario -
+        <?= htmlspecialchars($title); ?>
+    </title>
     <?php else: ?>
     <title>📖 Diccionario - Mis palabras</title>
     <?php endif; ?>
@@ -17,16 +19,15 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Bootstrap CSS v4.6.0 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- jQuery UI -->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/redmond/jquery-ui.css">
+    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
 
     <!-- DataTables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="css/responsive.bootstrap4.min.css">
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
@@ -42,43 +43,47 @@
     <?php if($flashes): ?>
     <?php foreach($flashes as $flash): ?>
     <div class="alert alert-<?= htmlspecialchars($flash['class']); ?> text-center" role="alert" id="flashes">
-        <?= htmlspecialchars($flash['message']);?></div>
+        <?= htmlspecialchars($flash['message']);?>
+    </div>
     <?php endforeach; ?>
     <?php endif; ?>
 
     <!-- Arriba y abajo 50px derecha y izquierda 0 margin: 30px 0;-->
-    <main class="container my-5"><?php require $template; ?></main>
+    <main class="container my-5">
+        <?php require $template; ?>
+    </main>
 
     <footer class="small text-center text-muted">
         <div class="container">
             <div style="padding: 30px 0;">
-                <p class="">&copy; 2017-<?= htmlspecialchars( date("Y") ) ?> | Powered by JYS | All rights reserved.</p>
+                <p class="">&copy; 2017-
+                    <?= htmlspecialchars( date("Y") ) ?> | Powered by JYS | All rights reserved.
+                </p>
             </div>
         </div>
     </footer>
 
     <button onclick="topFunction()" id="myBtn" title="Subir"><span style="font-size: 14px;">Subir</span></button>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+    <!-- jQuery JS v3.6.0 -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+
+    <!-- Popper JS v1.16.1 -->
+    <script src="js/popper.min.js"></script>
+
+    <!-- Bootstrap JS v4.6.0 -->
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- jQuery UI -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 
     <!-- DataTables -->
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.bootstrap4.min.js"></script>
+    <script src="js/dataTables.responsive.min.js"></script>
+    <script src="js/responsive.bootstrap4.min.js"></script>
 
+    <!-- Scripts propios -->
     <script src="js/datatable.js"></script>
     <script src="js/main.js"></script>
 

@@ -1,6 +1,12 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
+const d = document;
+
+// Desabilita el clic derecho!
+// d.addEventListener('contextmenu', e => e.preventDefault());
+window.oncontextmenu = (e) => { e.preventDefault(); }
+
+d.addEventListener('DOMContentLoaded', () => {
     // initDeleteFlash();
     initErrorFields();
     initFlashes();
@@ -9,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initDeleteFlash() {
-    let obj = document.querySelectorAll('.alert');
+    let obj = d.querySelectorAll('.alert');
     if (obj) {
         obj.forEach(el => { setTimeout(function () { el.remove(); }, 3000); });
     }
@@ -17,7 +23,7 @@ function initDeleteFlash() {
 
 // Evitar enviar el formulario presionando la tecla ENTER en un input field
 function formSubmissionHandler() {
-    const formEl = document.querySelector('form');
+    const formEl = d.querySelector('form');
     if (!formEl) return;
     // También se puede utilizar el evento onkeydown
     formEl.onkeypress = function (evt) {
@@ -68,20 +74,20 @@ function initDeleteDialog() {
 
 // Captura el primer error que exista en los formularios de registro
 function initErrorFields() {
-    let obj = document.querySelector('.is-invalid');
+    let obj = d.querySelector('.is-invalid');
     if (obj) {
         obj.focus();
     }
 }
 
 /* Lógica volver a arriba */
-var mybutton = document.getElementById("myBtn");
+var mybutton = d.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    if (d.body.scrollTop > 20 || d.documentElement.scrollTop > 20) {
         mybutton.style.display = "block";
     } else {
         mybutton.style.display = "none";
@@ -90,8 +96,8 @@ function scrollFunction() {
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    d.body.scrollTop = 0;
+    d.documentElement.scrollTop = 0;
 }
 
 /* Fin de la lógica de volver a arriba*/
