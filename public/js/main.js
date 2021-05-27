@@ -1,18 +1,28 @@
-'use strict';
+﻿'use strict';
 
 const d = document;
 
 // Desabilita el clic derecho!
 // d.addEventListener('contextmenu', e => e.preventDefault());
-window.oncontextmenu = (e) => { e.preventDefault(); }
 
 d.addEventListener('DOMContentLoaded', () => {
     // initDeleteFlash();
+    preventKeyboard();
     initErrorFields();
     initFlashes();
     initDeleteDialog();
     formSubmissionHandler();
 });
+
+function preventKeyboard() {
+    window.oncontextmenu = (e) => { e.preventDefault(); }
+    window.onkeydown = (e) => {
+        if ((e.ctrlKey && e.shiftKey && e.keyCode == 73) ||
+            (e.ctrlKey && e.keyCode == 85)) {
+            e.preventDefault();
+        }
+    }
+}
 
 function initDeleteFlash() {
     let obj = d.querySelectorAll('.alert');
