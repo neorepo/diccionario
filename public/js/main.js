@@ -7,13 +7,14 @@ const d = document;
 
 d.addEventListener('DOMContentLoaded', () => {
     // initDeleteFlash();
-    preventKeyboard();
+    // preventKeyboard();
     initErrorFields();
     initFlashes();
     initDeleteDialog();
     formSubmissionHandler();
 });
 
+// Previene la apertura de herramientas del desarrollador
 function preventKeyboard() {
     window.oncontextmenu = (e) => { e.preventDefault(); }
     window.onkeydown = (e) => {
