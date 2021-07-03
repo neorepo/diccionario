@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" dir="ltr">
 
 <head>
@@ -32,12 +32,64 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
 
+    <style>
+        #dark-mode-button {
+            border: 0;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            cursor: pointer;
+            font-family: emoji;
+            line-height: 1;
+            font-size: 26px;
+        }
+
+        .dark {
+            background-color: rgb(28, 27, 34);/*#1c1b22*/
+            color: rgb(251, 251, 254);
+        }
+
+        #dark-mode-button:focus {
+            outline: none;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const btnEl = document.querySelector('#dark-mode-button');
+            if (localStorage.getItem('theme')) { darkLightTheme(btnEl); }
+            initDarkLightTheme(btnEl);
+        });
+
+        function initDarkLightTheme(el) {
+            el.onclick = function (e) { return darkLightTheme(this); }
+        }
+
+        function darkLightTheme(el) {
+            if (el.innerText === '🌙') {
+                el.innerText = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                el.innerText = '🌙';
+                localStorage.removeItem('theme');
+            }
+            document.querySelector('body').classList.toggle('dark');
+            if (document.querySelector('.table'))
+                document.querySelector('.table').classList.toggle('dark');
+        }
+    </script>
 </head>
 
 <body>
-    <header class="text-center mt-5">
-        <h1 class=""><a href="<?php echo Utils::createLink('home'); ?>"><span>📖</span></a>
-            Mis palabras</h1>
+    <header class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col">
+                <h1 class=""><a href="<?php echo Utils::createLink('home'); ?>"><span>📖</span></a>
+                    Mis palabras</h1>
+            </div>
+            <div class="col-auto">
+                <button id="dark-mode-button">🌙</button>
+            </div>
+        </div>
     </header>
 
     <?php if($flashes): ?>
