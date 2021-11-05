@@ -79,15 +79,26 @@
 
 <body>
     <header class="container mt-5">
+        <style>
+            .bge {
+                position: absolute;top: 15px;left: 28.5px;
+                font-size: medium;
+                font-weight: 700;
+            }
+        </style>
         <div class="row align-items-center">
             <div class="col">
-                <h1 class=""><a href="<?php echo Utils::createLink('home'); ?>"><span>📖</span></a>
-                    Mis palabras</h1>
+                <h1 class=""><a href="<?php echo Utils::createLink('home'); ?>"><span>📖
+                    <span class="bge"><?php echo htmlspecialchars($total_words); ?></span>
+                </span></a>
+                    Mis palabras
+                </h1>
             </div>
             <div class="col-auto">
                 <button id="dark-mode-button">🌙</button>
             </div>
         </div>
+        
     </header>
 
     <?php if($flashes): ?>
@@ -100,7 +111,6 @@
 
     <!-- Arriba y abajo 50px derecha y izquierda 0 margin: 30px 0;-->
     <main class="container my-5">
-        <p>Alienación, enajenar</p>
         <?php require $template; ?>
     </main>
 

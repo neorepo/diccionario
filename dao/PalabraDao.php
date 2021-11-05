@@ -121,6 +121,10 @@ class PalabraDao extends BaseDao {
         return $result;
     }
 
+    public function count_words() {
+        return count( $this->getAll() );
+    }
+
     private function query($sql) {
         $statement = $this->conn->query($sql, PDO::FETCH_ASSOC);
         if ($statement === false) {

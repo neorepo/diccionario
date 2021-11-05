@@ -92,6 +92,8 @@ class Index {
             if (Flash::hasFlashes()) {
                 $flashes = Flash::getFlashes();
             }
+            $dao = new PalabraDao;
+            $total_words = $dao->count_words();
             // main template (layout)
             require self::LAYOUT_DIR . 'index.html';
         }
