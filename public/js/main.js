@@ -92,23 +92,22 @@ function initErrorFields() {
 }
 
 /* Lógica volver a arriba */
-var mybutton = d.getElementById("myBtn");
+let btnEl = document.getElementById("gototop");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () { scrollFunction() };
 
+btnEl.onclick = backToTop;
+
+function backToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
 function scrollFunction() {
-    if (d.body.scrollTop > 20 || d.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        btnEl.style.display = "block";
     } else {
-        mybutton.style.display = "none";
+        btnEl.style.display = "none";
     }
 }
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-    d.body.scrollTop = 0;
-    d.documentElement.scrollTop = 0;
-}
-
-/* Fin de la lógica de volver a arriba*/

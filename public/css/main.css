@@ -59,22 +59,22 @@ table.detail th {
     color: red;
 }
 
-#myBtn {
+/* Volver a arriba */
+#gototop {
     display: none;
     position: fixed;
     bottom: 20px;
     right: 15px;
     z-index: 99;
-    font-size: 18px;
     border: none;
     outline: none;
-    background-color: #545b62;
-    color: white;
+    background-color: #a51c30;
     cursor: pointer;
-    padding: 10px;
+    padding: 12px;
     border-radius: 4px;
 }
 
-#myBtn:hover {
-    background-color: #5a6268;
+#gototop:hover {
+    background-color: #555;
 }
+/* Fin volver a arriba*/
