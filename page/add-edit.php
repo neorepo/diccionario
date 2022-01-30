@@ -13,7 +13,7 @@ if ($action) {
 
 $title = $action ? 'Editar palabra' : 'Agregar palabra';
 
-if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
 
     if (array_key_exists('cancelar', $_POST)) {
 

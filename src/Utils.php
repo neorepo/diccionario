@@ -46,7 +46,7 @@ final class Utils {
         return true;
     }
 
-    public static function escape($data) {
-        return $data === null ? '' : htmlspecialchars( stripslashes( trim($data) ) );
+    public static function escape($str) {
+        return $str === null || strlen($str) == 0 ? '' : htmlspecialchars( stripslashes( trim($str) ) );
     }
 }
