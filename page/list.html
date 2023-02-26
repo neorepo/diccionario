@@ -26,10 +26,10 @@
                         href="<?= Utils::createLink('detail', ['id' => $palabra->getId()]) ?>"><?= Utils::escape($palabra->getPalabra()); ?></a>
                 </td>
                 <td>
-                    <div class="message"><span class="expand-btn">[+]</span><?= $palabra->getSignificado() ?></div>
+                    <div class="message"><span class="expand-btn">[+]</span><?= nl2br($palabra->getSignificado()); ?></div>
                 </td>
                 <td>
-                    <div><?= $palabra->getEjemplo() ?></div>
+                    <div><?= nl2br($palabra->getEjemplo()); ?></div>
                 </td>
             </tr>
             <?php endforeach ?>
