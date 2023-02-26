@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" dir="ltr">
 
 <head>
@@ -9,7 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <?php if(isset($title)): ?>
-    <title>📖 Diccionario - <?= htmlspecialchars($title); ?></title>
+    <title>📖 Diccionario -
+        <?= htmlspecialchars($title); ?>
+    </title>
     <?php else: ?>
     <title>📖 Diccionario - Mis palabras</title>
     <?php endif; ?>
@@ -43,7 +45,8 @@
         }
 
         .dark {
-            background-color: rgb(28, 27, 34);/*#1c1b22*/
+            background-color: rgb(28, 27, 34);
+            /*#1c1b22*/
             color: rgb(251, 251, 254);
         }
 
@@ -81,7 +84,9 @@
     <header class="container mt-5">
         <style>
             .bge {
-                position: absolute;top: 15px;left: 28.5px;
+                position: absolute;
+                top: 15px;
+                left: 28.5px;
                 font-size: medium;
                 font-weight: 700;
                 color: #a51c30;
@@ -91,7 +96,9 @@
             <div class="col">
                 <h1 class="">
                     <span>📖
-                        <span class="bge"><?php echo htmlspecialchars($total_words); ?></span>
+                        <span class="bge">
+                            <?php echo htmlspecialchars($total_words); ?>
+                        </span>
                     </span>
                     <a href="<?php echo Utils::createLink('home'); ?>">Mis palabras</a>
                 </h1>
@@ -100,7 +107,7 @@
                 <button id="dark-mode-button">🌙</button>
             </div>
         </div>
-        
+
     </header>
 
     <?php if($flashes): ?>
@@ -127,8 +134,9 @@
     </footer>
 
     <button id="gototop" title="Ir arriba">
-        <svg style="vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path fill="#fff" d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/>
+        <svg style="vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24">
+            <path fill="#fff" d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z" />
         </svg>
     </button>
 
@@ -153,6 +161,58 @@
     <!-- Scripts propios -->
     <script src="js/datatable.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+        bindToggleMessageBtns = function () {
+            let divElements,
+                expandBtn,
+                i,
+                n;
+
+            divElements = document.getElementsByTagName('div');
+
+            n = divElements.length;
+
+            for (i = 0; i < n; i++) {
+
+                if (divElements[i].className === 'message') {
+                    expandBtn = divElements[i].firstChild;
+                    expandBtn.addEventListener('click', toggleMessage(expandBtn), false);
+                }
+            }
+        };
+
+        toggleMessage = function (btn) {
+
+            return function () {
+                let message = btn.parentNode;
+
+                if (message.className === "message") {
+                    message.className = "message show";
+                    btn.textContent = "[-]"; //A digit width hyphen. This way the button doesn't shrink (by much)
+                }
+                else {
+                    message.className = "message";
+                    btn.textContent = "[+]";
+                }
+            }
+        };
+
+        var main = (function () {
+
+            var obj = {};
+
+            obj.initialize = function () {
+
+                bindToggleMessageBtns();
+
+            };
+
+            return obj;
+        }());
+
+        window.addEventListener('load', main.initialize, false);
+    </script>
 
     <noscript>Your browser does not support JavaScript!</noscript>
 </body>

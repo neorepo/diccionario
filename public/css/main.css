@@ -6,10 +6,13 @@
     box-shadow: none !important;
 }
 
-a {text-decoration: none!important;}
+a {
+    text-decoration: none !important;
+}
 
 .emoji {
-    font-size: 16px;vertical-align: middle;
+    font-size: 16px;
+    vertical-align: middle;
 }
 
 /* forms */
@@ -77,4 +80,24 @@ table.detail th {
 #gototop:hover {
     background-color: #555;
 }
+
 /* Fin volver a arriba*/
+
+.message {
+    width: 700px;
+    height: 1.5rem;
+    overflow: hidden;
+    white-space: pre;
+    text-overflow: ellipsis;
+}
+
+.message.show {
+    height: auto;
+    overflow: auto;
+    white-space: normal;
+    text-align: justify;
+}
+
+.message .expand-btn {
+    cursor: pointer;
+}

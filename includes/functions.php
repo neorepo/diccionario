@@ -4,10 +4,11 @@
  * Devuelve true si el string contiene un caracter numérico positivo
  * false en caso contrario.
  */
-function isPositiveInt($n) {
-    if( get_int($n) ) {
+function isPositiveInt($n)
+{
+    if (get_int($n)) {
         $n = (int) $n;
-        if($n > 0) {
+        if ($n > 0) {
             return true;
         }
     }
@@ -17,10 +18,11 @@ function isPositiveInt($n) {
 /**
  * Válida un string con caracteres númericos.
  */
-function get_int($n) {
+function get_int($n)
+{
     if ($n != null) {
         // Si es un caracter numérico entero
-        if ( preg_match('/^[+-]?\d+$/', $n) ) {
+        if (preg_match('/^[+-]?\d+$/', $n)) {
             return true;
         }
     }

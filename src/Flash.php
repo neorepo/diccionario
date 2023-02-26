@@ -19,12 +19,12 @@ final class Flash
 
     public static function addFlash($message, $class = 'success', $dismissible = false)
     {
-        if ( !strlen( trim($message) ) ) {
+        if (!strlen(trim($message))) {
             throw new Exception('No se puede insertar un mensaje flash vacío.');
         }
         self::initFlashes();
 
-        self::$flashes [] = ['message' => $message, 'class' => $class];
+        self::$flashes[] = ['message' => $message, 'class' => $class];
     }
 
     /**

@@ -6,20 +6,29 @@
 </div> -->
 <table class="table table-borderless detail">
     <tr>
-        <th class="h2"><?= Utils::escape( $palabra->getPalabra() ); ?></th>
+        <th class="h2">
+            <?= Utils::escape( $palabra->getPalabra() ); ?>
+        </th>
     </tr>
     <tr>
-        <td><?= nl2br( Utils::escape( $palabra->getSignificado() ) ); ?></td>
+        <td>
+            <?= nl2br( Utils::escape( $palabra->getSignificado() ) ); ?>
+        </td>
     </tr>
     <tr>
-        <td><?= nl2br( Utils::escape( $palabra->getEjemplo() ) ); ?></td>
+        <td>
+            <?= nl2br( Utils::escape( $palabra->getEjemplo() ) ); ?>
+        </td>
     </tr>
     <tr>
         <td>
             <div class="actions">
-                <a href="<?= Utils::createLink('add-edit', ['id' => $palabra->getId()]); ?>" title="Editarla."><span>🖊️</span></a>
+                <a href="<?= Utils::createLink('add-edit', ['id' => $palabra->getId()]); ?>"
+                    title="Editarla"><span>🖊️</span></a>
                 <a href="<?= Utils::createLink('delete', ['id' => $palabra->getId()]); ?>" id="delete-link"
-                    title="Eliminarla."><span>❌</span></a>
+                    title="Eliminarla"><span>❌</span></a>
+                <a href="<?= Utils::createLink('add-edit'); ?>" title="Agregar nueva palabra">
+                    <span>➕</span></a>
             </div>
         </td>
     </tr>

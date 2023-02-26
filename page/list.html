@@ -3,7 +3,7 @@
         <div class="col">
             <h2 class="">Palabras <a class="" href="<?= Utils::createLink('add-edit'); ?>" title="Agregar palabra">
                     <span class="emoji">➕</span></a>
-                </h2>
+            </h2>
         </div>
         <!-- <div class="col-auto">
             <a href=""><i class="material-icons pdf">picture_as_pdf</i></a>
@@ -21,12 +21,23 @@
         <tbody>
             <?php $i = 1; foreach($palabras as $palabra): ?>
             <tr>
-                <td><?= $i++ ?></td>
-                <td><a
-                        href="<?= Utils::createLink('detail', ['id' => $palabra->getId()]) ?>"><?= Utils::escape($palabra->getPalabra()); ?></a>
+                <td>
+                    <?= $i++ ?>
                 </td>
-                <td><?= $palabra->getSignificado() ?></td>
-                <td><?= $palabra->getEjemplo() ?></td>
+                <td><a href="<?= Utils::createLink('detail', ['id' => $palabra->getId()]) ?>">
+                        <?= Utils::escape($palabra->getPalabra()); ?>
+                    </a>
+                </td>
+                <td>
+                    <div class="message"><span class="expand-btn">[+]</span>
+                        <?= $palabra->getSignificado() ?>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <?= $palabra->getEjemplo() ?>
+                    </div>
+                </td>
             </tr>
             <?php endforeach ?>
         </tbody>

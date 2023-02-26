@@ -3,7 +3,8 @@
 /**
  * Application configuration.
  */
-final class Config {
+final class Config
+{
 
     /** @var array config data */
     private static $DATA = null;
@@ -12,7 +13,8 @@ final class Config {
      * @return array
      * @throws Exception
      */
-    public static function getConfig($section = null) {
+    public static function getConfig($section = null)
+    {
         // === Tiene en cuenta la igualdad de contenido y tipo
         if ($section === null) {
             return self::getData();
@@ -27,7 +29,8 @@ final class Config {
     /**
      * @return array
      */
-    private static function getData() {
+    private static function getData()
+    {
         if (self::$DATA !== null) {
             return self::$DATA;
         }

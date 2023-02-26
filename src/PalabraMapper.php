@@ -1,17 +1,20 @@
 <?php
 
-final class PalabraMapper {
+final class PalabraMapper
+{
 
-    private function __construct() {
+    private function __construct()
+    {
     }
 
-    public static function map(Palabra $palabra, array $properties) {
+    public static function map(Palabra $palabra, array $properties)
+    {
         if (array_key_exists('id', $properties)) {
             $palabra->setId($properties['id']);
         }
-        $palabra->setPalabra( Utils::escape( $properties['palabra'] ) );
-        $palabra->setSignificado( Utils::escape( $properties['significado'] ) );
-        $palabra->setEjemplo( Utils::escape( $properties['ejemplo'] ) );
+        $palabra->setPalabra(Utils::escape($properties['palabra']));
+        $palabra->setSignificado(Utils::escape($properties['significado']));
+        $palabra->setEjemplo(Utils::escape($properties['ejemplo']));
         // if (array_key_exists('palabra', $properties)) {
         // }
         // if (array_key_exists('significado', $properties)) {
@@ -23,8 +26,8 @@ final class PalabraMapper {
         }
     }
 
-    private static function createDateTime($input) {
+    private static function createDateTime($input)
+    {
         return DateTime::createFromFormat('Y-n-j H:i:s', $input);
     }
-
 }

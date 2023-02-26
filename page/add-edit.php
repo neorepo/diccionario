@@ -13,12 +13,12 @@ if ($action) {
 
 $title = $action ? 'Editar palabra' : 'Agregar palabra';
 
-if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (array_key_exists('cancelar', $_POST)) {
 
-        if( $palabra->getId() !== null) {
-            Utils::redirect('detail', ['id' => $palabra->getId() ]);
+        if ($palabra->getId() !== null) {
+            Utils::redirect('detail', ['id' => $palabra->getId()]);
         } else {
             Utils::redirect('list');
         }
@@ -33,18 +33,18 @@ if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
     // map
     PalabraMapper::map($palabra, $data);
 
-    if ( !$palabra->getPalabra() ) {
+    if (!$palabra->getPalabra()) {
         $errors['palabra'] = 'Completa este campo.';
-    } else if ( Utils::existePalabra( $palabra ) ) {
+    } else if (Utils::existePalabra($palabra)) {
         $errors['palabra'] = 'Esta palabra ya se encuentra registrada.';
     }
 
-    if ( !$palabra->getSignificado() ) {
+    if (!$palabra->getSignificado()) {
         $errors['significado'] = 'Completa este campo.';
     }
 
     // Si no hay errores
-    if ( empty($errors) ) {
+    if (empty($errors)) {
 
         $dao = new PalabraDao();
         $palabra = $dao->save($palabra);

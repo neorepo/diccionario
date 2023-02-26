@@ -1,6 +1,7 @@
 <?php
 
-class Index {
+class Index
+{
 
     const DEFAULT_PAGE = 'home';
     const PAGE_DIR = '../page/';
@@ -20,7 +21,8 @@ class Index {
     /**
      * System config.
      */
-    public function init() {
+    public function init()
+    {
         // error reporting - all errors for development (ensure you have display_errors = On in your php.ini file)
         error_reporting(E_ALL | E_STRICT);
         //mb_internal_encoding('UTF-8');
@@ -33,18 +35,21 @@ class Index {
     /**
      * Run the application!
      */
-    public function run() {
+    public function run()
+    {
         $this->runPage($this->getPage());
     }
 
-    public function loadClass($name) {
+    public function loadClass($name)
+    {
         if (!array_key_exists($name, self::$CLASSES)) {
             die('Clase "' . $name . '" no encontrada.');
         }
         require_once __DIR__ . self::$CLASSES[$name];
     }
 
-    public function handleException($ex) {
+    public function handleException($ex)
+    {
         $extra = ['message' => $ex->getMessage()];
         if ($ex instanceof NotFoundException) {
             header('HTTP/1.0 404 Not Found');
@@ -56,7 +61,8 @@ class Index {
         }
     }
 
-    private function getPage() {
+    private function getPage()
+    {
         $page = self::DEFAULT_PAGE; // list
 
         if (array_key_exists('page', $_GET)) {
@@ -65,7 +71,8 @@ class Index {
         return $this->checkPage($page);
     }
 
-    private function checkPage($page) {
+    private function checkPage($page)
+    {
         // i => no sensible a mayúsculas y minúsculas
         if (!preg_match('/^[a-z0-9-]+$/i', $page)) {
             // TODO log attempt, redirect attacker, ...
@@ -78,7 +85,8 @@ class Index {
         return $page;
     }
 
-    private function runPage($page, array $extra = []) {
+    private function runPage($page, array $extra = [])
+    {
         $run = false;
         if ($this->hasScript($page)) {
             $run = true;
@@ -102,20 +110,24 @@ class Index {
         }
     }
 
-    private function getScript($page) {
+    private function getScript($page)
+    {
         //PAGE_DIR = ../page/
         return self::PAGE_DIR . $page . '.php';
     }
 
-    private function getTemplate($page) {
+    private function getTemplate($page)
+    {
         return self::PAGE_DIR . $page . '.html';
     }
 
-    private function hasScript($page) {
+    private function hasScript($page)
+    {
         return file_exists($this->getScript($page));
     }
 
-    private function hasTemplate($page) {
+    private function hasTemplate($page)
+    {
         return file_exists($this->getTemplate($page));
     }
 }

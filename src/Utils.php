@@ -1,25 +1,30 @@
 <?php
 
-final class Utils {
+final class Utils
+{
 
-    public static function redirect($page, array $params = []) {
+    public static function redirect($page, array $params = [])
+    {
         header('Location: ' . self::createLink($page, $params));
         die();
     }
 
-    public static function createLink($page, array $params = []) {
+    public static function createLink($page, array $params = [])
+    {
         unset($params['page']);
         return 'index.php?' . http_build_query(array_merge(['page' => $page], $params));
     }
 
-    public static function getUrlParam($name) {
+    public static function getUrlParam($name)
+    {
         if (!array_key_exists($name, $_GET)) {
             throw new NotFoundException('URL parameter "' . $name . '" not found.');
         }
         return $_GET[$name];
     }
 
-    public static function getPalabraByGetId() {
+    public static function getPalabraByGetId()
+    {
         $id = null;
         try {
             $id = self::getUrlParam('id');
@@ -37,16 +42,18 @@ final class Utils {
         return $palabra;
     }
 
-    public static function existePalabra($palabra) {
+    public static function existePalabra($palabra)
+    {
         $dao = new PalabraDao();
         $palabra = $dao->findByPalabra($palabra);
-        if($palabra === null) {
+        if ($palabra === null) {
             return false;
         }
         return true;
     }
 
-    public static function escape($str) {
-        return $str === null || strlen($str) == 0 ? '' : htmlspecialchars( stripslashes( trim($str) ) );
+    public static function escape($str)
+    {
+        return $str === null || strlen($str) == 0 ? '' : htmlspecialchars(stripslashes(trim($str)));
     }
 }

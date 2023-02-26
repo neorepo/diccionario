@@ -1,21 +1,24 @@
 <?php
 
-abstract class BaseDao {
+abstract class BaseDao
+{
 
     private static $conn = null;
 
-    public function __destruct() {
+    public function __destruct()
+    {
         // close db connection
         self::$conn = null;
     }
 
-    protected final function getDb() {
+    protected final function getDb()
+    {
 
         if (self::$conn !== null) {
             return self::$conn;
         }
 
-		// tratar de conectarse a la base de datos
+        // tratar de conectarse a la base de datos
         try {
             $config = Config::getConfig('sqlite');
             self::$conn = new PDO($config['dsn'], $config['username'], $config['password'], array(
@@ -28,10 +31,10 @@ abstract class BaseDao {
             trigger_error('Could not connect to database:' . $e->getMessage(), E_USER_ERROR);
             exit;
         }
-        
-		// devolvemos la instancia de la clase PDO
-		return self::$conn;
-	}
+
+        // devolvemos la instancia de la clase PDO
+        return self::$conn;
+    }
 
     abstract protected function insert(Palabra $data);
     abstract protected function update(Palabra $data);
