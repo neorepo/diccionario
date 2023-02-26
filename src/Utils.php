@@ -54,6 +54,6 @@ final class Utils
 
     public static function escape($str)
     {
-        return $str === null || strlen($str) == 0 ? '' : htmlspecialchars(stripslashes(trim($str)));
+        return $str === null || strlen($str) == 0 ? '' : htmlspecialchars( stripslashes(trim($str)), ENT_QUOTES );
     }
 }

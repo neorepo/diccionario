@@ -15,12 +15,13 @@
             <?= nl2br( Utils::escape( $palabra->getSignificado() ) ); ?>
         </td>
     </tr>
+    <?php if( $palabra->getEjemplo() ): ?>
     <tr>
         <td>
             <hr style="background-color: #eee; margin: 0;">
-            <!-- <div style="width: 100%;height: 1px;background-color: #eee;"></div> -->
         </td>
     </tr>
+    <?php endif; ?>
     <tr>
         <td>
             <?= nl2br( Utils::escape( $palabra->getEjemplo() ) ); ?>

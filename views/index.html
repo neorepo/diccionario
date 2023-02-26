@@ -9,9 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <?php if(isset($title)): ?>
-    <title>📖 Diccionario -
-        <?= htmlspecialchars($title); ?>
-    </title>
+    <title>📖 Diccionario - <?= htmlspecialchars($title); ?></title>
     <?php else: ?>
     <title>📖 Diccionario - Mis palabras</title>
     <?php endif; ?>
@@ -96,9 +94,7 @@
             <div class="col">
                 <h1 class="">
                     <span>📖
-                        <span class="bge">
-                            <?php echo htmlspecialchars($total_words); ?>
-                        </span>
+                        <span class="bge"><?php echo htmlspecialchars($total_words); ?></span>
                     </span>
                     <a href="<?php echo Utils::createLink('home'); ?>">Mis palabras</a>
                 </h1>
